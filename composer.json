@@ -1,0 +1,77 @@
+{
+    "name": "hyperf/hyperf-skeleton",
+    "type": "project",
+    "keywords": [
+        "php",
+        "swoole",
+        "framework",
+        "hyperf",
+        "microservice",
+        "middleware"
+    ],
+    "description": "A coroutine framework that focuses on hyperspeed and flexible, specifically use for build microservices and middlewares.",
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=8.0",
+        "ext-swoole": ">=4.6",
+        "hyperf/cache": "~3.0.x-dev",
+        "hyperf/command": "~3.0.x-dev",
+        "hyperf/config": "~3.0.x-dev",
+        "hyperf/db-connection": "~3.0.x-dev",
+        "hyperf/db": "~3.0.x-dev",
+        "hyperf/framework": "~3.0.x-dev",
+        "hyperf/guzzle": "~3.0.x-dev",
+        "hyperf/http-server": "~3.0.x-dev",
+        "hyperf/logger": "~3.0.x-dev",
+        "hyperf/memory": "~3.0.x-dev",
+        "hyperf/process": "~3.0.x-dev",
+        "hyperf/redis": "~3.0.x-dev",
+        "hyperf/database": "~3.0.x-dev",
+        "hyperf/constants": "~3.0.x-dev",
+        "hyperf/model-cache": "~3.0.x-dev",
+        "hyperf/elasticsearch": "~3.0.x-dev",
+        "hyperf/tracer": "~3.0.x-dev",
+        "wayhood/hyperf-action": "^3.0.0"
+    },
+    "require-dev": {
+        "hyperf/ide-helper": "~3.0.x-dev",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "mockery/mockery": "^1.0",
+        "phpstan/phpstan": "^0.12",
+        "hyperf/devtool": "~3.0.x-dev",
+        "hyperf/testing": "~3.0.x-dev"
+    },
+    "suggest": {
+        "ext-openssl": "Required to use HTTPS.",
+        "ext-json": "Required to use JSON.",
+        "ext-pdo": "Required to use MySQL Client.",
+        "ext-pdo_mysql": "Required to use MySQL Client.",
+        "ext-redis": "Required to use Redis Client."
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": []
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HyperfTest\\": "./test/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": [],
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-autoload-dump": [
+            "rm -rf runtime/container"
+        ],
+        "test": "co-phpunit -c phpunit.xml --colors=always",
+        "cs-fix": "php-cs-fixer fix $1",
+        "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./app ./config",
+        "start": "php ./bin/hyperf.php start"
+    }
+}
