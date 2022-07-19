@@ -31,7 +31,7 @@
         "hyperf/model-cache": "~3.0.x-dev",
         "hyperf/elasticsearch": "~3.0.x-dev",
         "hyperf/tracer": "~3.0.x-dev",
-        "wayhood/hyperf-action": "^3.0.0"
+        "wayhood/hyperf-action": "^3.0.x-dev"
     },
     "require-dev": {
         "hyperf/ide-helper": "~3.0.x-dev",
@@ -61,6 +61,12 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/Users/wayhood/Sites/plugins/hyperf-action"
+        }
+    ],
     "extra": [],
     "scripts": {
         "post-root-package-install": [

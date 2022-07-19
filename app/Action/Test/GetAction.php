@@ -3,6 +3,7 @@
 declare(strict_types=1);
 namespace App\Action\Test;
 
+use App\Validate\TestGetValidate;
 use Hyperf\DB\DB;
 use Wayhood\HyperfAction\Annotation\Action;
 use Wayhood\HyperfAction\Annotation\Category;
@@ -13,6 +14,7 @@ use Wayhood\HyperfAction\Annotation\Usable;
 use Wayhood\HyperfAction\Annotation\ErrorCode;
 use Wayhood\HyperfAction\Annotation\Token;
 use Wayhood\HyperfAction\Action\AbstractAction;
+use Wayhood\HyperfAction\Annotation\Validate;
 
 # 以下注解用于生成文档校验数据类型和过滤响应输出
 #[Action('test.get')]
@@ -20,6 +22,8 @@ use Wayhood\HyperfAction\Action\AbstractAction;
 #[Category(name: '测试')]
 # 描述
 #[Description(name: '测试请求')]
+#验证器
+#[Validate(validate: TestGetValidate::class)]
 # 请求参数
 #[RequestParam(name: 'nick', type: 'string', require: true, example: 'test', description: '用户昵称')]
 #[RequestParam(name: 'a',    type: 'string', require: true, example: 'a',    description: '请求参数a')]

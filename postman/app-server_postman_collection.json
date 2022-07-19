@@ -1,0 +1,71 @@
+{
+    "info": {
+        "name": "app-server",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "测试",
+            "item": [
+                {
+                    "name": "测试列表 test.list",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{app-server_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"request\": {\n        \"dispatch\": \"test.list\",\n        \"params\": {\n            \"start\": 0,\n            \"limit\": 10\n        }\n    }\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{app-server_host}}",
+                            "host": [
+                                "{{app-server_host}}"
+                            ]
+                        },
+                        "response": []
+                    }
+                },
+                {
+                    "name": "测试请求 test.get",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{app-server_token}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"request\": {\n        \"dispatch\": \"test.get\",\n        \"params\": {\n            \"nick\": \"test\",\n            \"a\": \"a\",\n            \"b\": 1,\n            \"c\": 0.1\n        }\n    }\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{app-server_host}}",
+                            "host": [
+                                "{{app-server_host}}"
+                            ]
+                        },
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}
